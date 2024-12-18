@@ -1,66 +1,125 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Here’s the updated README file with the environment variables and the command for generating the JWT secret:
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+---
 
-## About Laravel
+# User Sphere - Project Installation Guide
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Welcome to the User Sphere project! This guide will walk you through the steps to set up and run the project from GitHub.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requirements
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Before starting, make sure your system meets the following requirements:
 
-## Learning Laravel
+- **PHP** version 8.2+
+- **MySQL** version 5.4+
+- **Composer** version 2.7+
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Installation Steps
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Clone the Repository**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+   First, clone the repository from GitHub:
 
-## Laravel Sponsors
+   ```bash
+   git clone https://github.com/gopalhingu/user-sphere.git
+   cd user-sphere
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+2. **Install Dependencies**
 
-### Premium Partners
+   Run the following command to install all the required dependencies:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+   ```bash
+   composer update
+   ```
 
-## Contributing
+3. **Database Migration**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   Next, run the database migrations to set up the database schema:
 
-## Code of Conduct
+   ```bash
+   php artisan migrate
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4. **Seed the Database**
 
-## Security Vulnerabilities
+   After migrating the database, seed the database with the necessary data:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+   ```bash
+   php artisan db:seed
+   ```
 
-## License
+5. **Generate Swagger Documentation**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+   Run the following command to generate the Swagger documentation for your API:
+
+   ```bash
+   php artisan l5-swagger:generate
+   ```
+
+6. **Generate JWT Secret**
+
+   To generate the JWT secret key, run the following command:
+
+   ```bash
+   php artisan jwt:secret
+   ```
+
+7. **Access the Application**
+
+   Now that the setup is complete, you can access the application by navigating to your web browser.
+
+---
+
+## Default Credentials
+
+Once you have successfully installed the application, you can log in with the following default credentials:
+
+- **Admin:**
+  - **Email:** admin@example.com
+  - **Password:** password
+
+- **User:**
+  - **Email:** user@example.com
+  - **Password:** password
+
+---
+
+## Dashboard Image
+
+To access the dashboard, please refer to the following image URL for reference:
+
+![Dashboard Image](https://prnt.sc/gCNn4kVu6d_l)
+
+---
+
+## Environment Configuration
+
+Before running the application, make sure to configure your `.env` file with the following variables:
+
+```env
+GOOGLE_CLIENT_ID='your-google-client-id'
+GOOGLE_CLIENT_SECRET='your-google-client-secret'
+GOOGLE_REDIRECT_URI='http://127.0.0.1:8000/auth/google/callback'
+
+JWT_SECRET=your-generated-jwt-secret
+L5_SWAGGER_CONST_HOST=http://127.0.0.1:8000
+L5_SWAGGER_GENERATE_ALWAYS=true
+```
+
+- Replace `'your-google-client-id'` and `'your-google-client-secret'` with your Google OAuth credentials.
+- The `JWT_SECRET` can be generated using the command `php artisan jwt:secret`.
+- `L5_SWAGGER_CONST_HOST` should point to your application URL.
+
+---
+
+## Additional Notes
+
+- Ensure you have properly configured your `.env` file with the correct database credentials before running the migration.
+- You may need to set up additional environment variables, such as `APP_URL` and `APP_KEY`, based on your deployment setup.
+  
+For further documentation and details on project features, refer to the project's [GitHub repository](https://github.com/gopalhingu/user-sphere.git).
+
+---
+
+Let me know if you need anything else!
