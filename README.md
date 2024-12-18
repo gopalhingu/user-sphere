@@ -1,7 +1,3 @@
-Here’s the updated README file with the environment variables and the command for generating the JWT secret:
-
----
-
 # User Sphere - Project Installation Guide
 
 Welcome to the User Sphere project! This guide will walk you through the steps to set up and run the project from GitHub.
@@ -85,14 +81,6 @@ Once you have successfully installed the application, you can log in with the fo
 
 ---
 
-## Dashboard Image
-
-To access the dashboard, please refer to the following image URL for reference:
-
-![Dashboard Image](https://prnt.sc/gCNn4kVu6d_l)
-
----
-
 ## Environment Configuration
 
 Before running the application, make sure to configure your `.env` file with the following variables:
@@ -110,15 +98,6 @@ L5_SWAGGER_GENERATE_ALWAYS=true
 - Replace `'your-google-client-id'` and `'your-google-client-secret'` with your Google OAuth credentials.
 - The `JWT_SECRET` can be generated using the command `php artisan jwt:secret`.
 - `L5_SWAGGER_CONST_HOST` should point to your application URL.
-
----
-
-## Additional Notes
-
-- Ensure you have properly configured your `.env` file with the correct database credentials before running the migration.
-- You may need to set up additional environment variables, such as `APP_URL` and `APP_KEY`, based on your deployment setup.
-  
-For further documentation and details on project features, refer to the project's [GitHub repository](https://github.com/gopalhingu/user-sphere.git).
 
 ---
 
