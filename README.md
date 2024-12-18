@@ -86,6 +86,15 @@ Once you have successfully installed the application, you can log in with the fo
 Before running the application, make sure to configure your `.env` file with the following variables:
 
 ```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME='your-email@gmail.com'
+MAIL_PASSWORD='your-email-password'
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS='your-email@gmail.com'
+MAIL_FROM_NAME="${APP_NAME}"
+
 GOOGLE_CLIENT_ID='your-google-client-id'
 GOOGLE_CLIENT_SECRET='your-google-client-secret'
 GOOGLE_REDIRECT_URI='http://127.0.0.1:8000/auth/google/callback'
